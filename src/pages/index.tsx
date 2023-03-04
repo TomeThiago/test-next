@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
+
 import styles from "../styles/home.module.scss";
-import { api } from "@/services/api";
 
 interface UserRepository {
   id: number;
@@ -17,23 +17,18 @@ interface User {
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [user, setUser] = useState<User>({} as User);
+  const [user, setUser] = useState<User>({} as User)
 
   const handleSearch = async (event: FormEvent) => {
     event.preventDefault();
 
-    const response = await api.get(`/users/${search}`);
-    const responseRepositories = await api.get(`/users/${search}/repos`);
+    const response = await fetch(`/api/send-email?username=${search}`)
+    const data = await response.json()
 
-    console.log(responseRepositories)
+    console.log(data);
 
-    const user: User = {
-      ...response.data,
-      repositories: responseRepositories.data,
-    };
-
-    setUser(user);
-  };
+    setUser(data.user);
+  }
 
   return (
     <div className={styles.container}>
