@@ -1,0 +1,69 @@
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.content {
+  background-color: #0b0e0e;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.content h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  margin: 16px 0;
+  width: 600px;
+
+  input {
+    padding: 8px;
+    flex: 2;
+    margin-right: 8px;
+  }
+
+  button {
+    flex: 1;
+    padding: 8px;
+  }
+}
+
+.containerUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  img {
+    align-self: center;
+  }
+}
+
+.listRepositories {
+  li {
+    padding: 8px 0;
+    list-style-type: none;
+
+    > a {
+      text-decoration: none;
+      color: #eee;
+      font-size: 18px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
