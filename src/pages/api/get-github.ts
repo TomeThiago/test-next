@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
+
+import corsMiddleware from '../../middlewares/cors';
 import { api } from "@/services/api";
 
 interface UserRepository {
@@ -35,3 +37,11 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
     user,
   });
 }
+
+export const config = {
+  api: {
+    bodyParser: false,
+    externalResolver: true,
+    middlewares: [corsMiddleware],
+  },
+};

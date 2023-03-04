@@ -22,10 +22,8 @@ export default function Home() {
   const handleSearch = async (event: FormEvent) => {
     event.preventDefault();
 
-    const response = await fetch(`/api/send-email?username=${search}`)
+    const response = await fetch(`/api/get-github?username=${search}`)
     const data = await response.json()
-
-    console.log(data);
 
     setUser(data.user);
   }
